@@ -12,3 +12,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Offer(models.Model):
+    code = models.CharField(max_length=50, unique=True)
+    description = models.TextField()
+    discount = models.FloatField()
+
+    """
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    """
+
+    def __str__(self):
+       # return f"{self.discount}% off on {self.product.name}"
+        return self.code
+        
